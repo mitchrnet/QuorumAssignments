@@ -1,0 +1,51 @@
+<!doctype.html>
+<html>
+    <head>
+        <title>Assignments Generator</title>
+    </head>
+    <body>
+        <h1>Assignments Generator</h1>
+        <div class="row">
+            <div class="col">
+                <button id="button1">Get In-Home Sacrament</button>
+                <h2>In-Home</h2>
+                <p id="output1"></p>
+            </di>
+        </div>
+        </br>
+        <div class="row">
+            <div class="col">
+                <button id="button2">Get Sacrament Meeting</button>
+                <h2>Sacrament Meeting</h2>
+                <p id="output2"></p>
+            </div>
+        </div>
+        
+        <script>
+            var button1 = document.getElementById("button1");
+            var button2 = document.getElementById("button2");
+            
+            var output1 = document.getElementById("output1");
+            var output2 = document.getElementById("output2");
+            
+            var drivers = ["Chris", "Jackson", "Caden", "Gavin", "Ryan", "Matt", "Everette", "Sam"];
+            var rest = ["Nate", "Mitch", "Chandler", "Josh", "Luke", "Britton"];
+            
+            var all = ["Chris", "Jackson", "Caden", "Gavin", "Ryan", "Matt", "Everette", "Sam", "Nate", "Mitch", "Chandler", "Josh", "Luke", "Britton"];
+            
+            button1.addEventListener("click", generateHome, false);
+            button2.addEventListener("click", generateSacrament, false);
+            
+            function generateHome() {
+                var randomDriver = Math.floor(Math.random()*drivers.length);
+                var randomRest = Math.floor(Math.random()*rest.length);
+                output1.innerHTML = "<b>Driver:</b> " + drivers[randomDriver] + "<br> <b>Other:</b> " + rest[randomRest]; 
+            }
+            
+            function generateSacrament() {
+                all.sort( function() { return 0.5 - Math.random(); } );
+                output2.innerHTML = "<ol><li> " + all[0] + "</li><li> " + all[1] + "</li><li> " + all[2] + "</li><li> " + all[3] + "</li></ol>"; 
+            }
+        </script>
+    </body>
+</html>
